@@ -4,7 +4,6 @@ import { primaryColor } from './../../utils/colors';
 
 export const Carousel = styled.div`
     display: flex;
-    margin: 0 0 20px 20px;
     flex-direction: row;
     width: 100%;
 `;
@@ -20,32 +19,31 @@ export const CurrentProduct = styled.div`
     padding: 5px;
     flex-direction: column;
 `;
-export const RecommendProduct = styled.div`
+export const RecommendContainer = styled.div`
     display: flex;
     flex: 1 1 0;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
+`;
+
+export const RecommendProduct = styled(RecommendContainer)`
+    flex-direction: column;
 `;
 export const Title = styled.strong`
   color: ${primaryColor}
-`
-const Arrow = styled.strong`
-    position: absolute;
+`;
+export const Next = styled.strong`
     width: 30px;
     height: 30px;
     text-align: center;
-    font-size: 25px;
-    border-radius: 50%;
+    font-size: x-large;
     cursor: pointer;
-    font-size: 20px;
+    flex: 1 1 1;
+    display: flex;
     color: ${primaryColor};
-    line-height: 30px;
-    margin-top: 85px;
-    z-index: 1000;`
-export const Back = styled(Arrow)`
+    align-self: center;
+    padding: 10px;
+    `;
+export const Back = styled(Next)`
     transform: rotate(180deg);
-`;
-
-export const Next = styled(Arrow)`
-    left: 680px;
 `;

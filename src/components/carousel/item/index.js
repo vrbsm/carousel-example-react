@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Image, ImageContainer, Name, Price, PriceNumber } from './style';
 
-export default function Item(props) {
+export default function Item({ item, order, moving, direction }) {
   return (
-    <Container order={props.order}>
+    <Container order={order} moving={moving} direction={direction}>
       <ImageContainer>
-        <Image src={props.item.imageName} />
+        <Image src={item.imageName} />
       </ImageContainer>
-      <Name>{props.item.name}</Name>
-      <Price>Por: <PriceNumber>{props.item.price}</PriceNumber></Price>
-      {props.item.productInfo &&
-      <Price dangerouslySetInnerHTML={{ __html: props.item.productInfo.paymentConditions }} />
+      <Name>{item.name}</Name>
+      <Price>Por: <PriceNumber>{item.price}</PriceNumber></Price>
+      {item.productInfo &&
+      <Price dangerouslySetInnerHTML={{ __html: item.productInfo.paymentConditions }} />
       }
     </Container>
   );
@@ -19,6 +19,8 @@ export default function Item(props) {
 Item.propTypes = {
   item: PropTypes.object,
   order: PropTypes.number,
+  moving: PropTypes.bool,
+  direction: PropTypes.string,
 };
 Item.defaultProps = {
   item: {
@@ -28,4 +30,6 @@ Item.defaultProps = {
     productInfo: {},
   },
   order: 0,
+  moving: true,
+  direction: '',
 };

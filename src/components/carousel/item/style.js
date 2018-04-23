@@ -6,19 +6,24 @@ export const Container = styled.div`
   height: 300px;
   display: flex;
   flex-flow: column wrap;
-  flex: 1 1 auto;
   margin-left: 10px;
   margin-right: 10px;
   order: ${props => props.order}
+  transition: ${props => (props.moving ? 'none' : 'transform 1s ease')};
+  transform: ${(props) => {
+    if (!props.moving) { return 'translateX(-100px)'; }
+    if (props.direction === 'prev') { return 'translateX(calc(2 * (-80%)))'; }
+    return 'translateX(0%)';
+  }};
   `;
 
 export const ImageContainer = styled.span`
     text-align: center;
-`
+`;
 export const Image = styled.img`
     width: 150px;
     height: 150px;
-`
+`;
 
 export const Name = styled.strong`
     display: block;
