@@ -57,7 +57,7 @@ class index extends Component {
       this.setState({
         moving: false
       })
-    }, 1);
+    }, 10);
   };
   
   render() {
