@@ -6,6 +6,10 @@ export const Container = styled.div`
   height: 300px;
   display: flex;
   flex-flow: column wrap;
+  flex: 1 1 auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  order: ${props => props.order}
   `;
 
 export const ImageContainer = styled.span`
