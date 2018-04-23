@@ -4,26 +4,36 @@ import { Container, Header, Footer, Body } from './style';
 import Recommendation from '../../service/api/Recommendation';
 
 class index extends Component {
+  
+  state = {
+    reference: {},
+    recommendation: []
+  }
+  
   componentDidMount() {
     Recommendation.recommendationProduct()
       .then((response) => {
-        console.log(response);
+        this.setState({
+          recommendation: response.recommendation,
+          reference: response.reference.item
+        })
       })
       .catch((error) => {
         console.log(error);
       });
   }
   render() {
+    const { reference, recommendation } = this.state;
     return (
       <Container>
         <Header>
-          <h1>Welcome to React</h1>
+          <h1>Welcome</h1>
         </Header>
         <Body>
-        To get started, edit <code>src/App.js</code> and save to reload.
+        This is my challenge. My component is bellow
         </Body>
         <Footer>
-          <Carousel />
+          <Carousel item={reference} recommendation={recommendation} />
         </Footer>
       </Container>
     );

@@ -15,6 +15,11 @@ export default class Recommendation {
       if(responseRequest[0] === 'X'){
         responseRequest = responseRequest.slice(2, responseRequest.length - 3);
         responseRequest = JSON.parse(responseRequest).data;
+        
+        let referenceItem = responseRequest.reference.item;
+        referenceItem.imageName = referenceItem.imageName.replace('//', 'http://');
+        responseRequest.reference.item = referenceItem;
+      
       }
       return responseRequest;
     })
