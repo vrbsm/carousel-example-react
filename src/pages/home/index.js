@@ -30,7 +30,7 @@ class index extends Component {
           <h1>Welcome</h1>
         </Header>
         <Body>
-        This is my challenge. My component is bellow
+        Hi, I am victor(victor.ecp@gmail.com) and this is my challenge. My component is bellow
         </Body>
         <Footer>
           <Carousel item={reference} recommendation={recommendation} />

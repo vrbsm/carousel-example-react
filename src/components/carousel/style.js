@@ -9,7 +9,7 @@ export const Carousel = styled.div`
 `;
 export const Container = styled.div`
     width: 100%;
-    max-height: 300px;
+    height: 300px;
     flex-direction: row;
     display: flex;
 `;
@@ -36,7 +36,7 @@ export const Next = styled.strong`
     width: 30px;
     height: 30px;
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
     cursor: pointer;
     flex: 1 1 1;
     display: flex;

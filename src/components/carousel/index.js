@@ -36,7 +36,6 @@ class index extends Component {
     const { position } = this.state;
     const { recommendation } = this.props;
     const numItems = recommendation.length || 1;
-    
     this.moveCarousel('next', position === numItems - 1 ? 0 : position + 1);
   };
   
@@ -44,7 +43,7 @@ class index extends Component {
     const { position } = this.state;
     const { recommendation } = this.props;
     const numItems = recommendation.length || 1;
-    
+  
     this.moveCarousel('prev', position === 0 ? (numItems - 1) : position - 1);
   };
   
@@ -54,12 +53,11 @@ class index extends Component {
       direction,
       position
     });
-    
     setTimeout(() => {
       this.setState({
         moving: false
       })
-    }, 50)
+    }, 1);
   };
   
   render() {

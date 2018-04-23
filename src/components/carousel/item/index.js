@@ -23,12 +23,7 @@ Item.propTypes = {
   direction: PropTypes.string,
 };
 Item.defaultProps = {
-  item: {
-    name: '',
-    price: '',
-    imageName: '',
-    productInfo: {},
-  },
+  item: {},
   order: 0,
   moving: true,
   direction: '',
