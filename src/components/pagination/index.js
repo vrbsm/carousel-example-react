@@ -14,13 +14,37 @@ import {
 import Item from './item';
 
 class index extends Component {
-  
+
+  constructor(props){
+    super(props)
+    this.contPagination = 0;
+  }
+
+  isInViewport = (element) => {
+    if(element.offsetTop<window.innerHeight &&
+      element.offsetTop>-element.offsetHeight
+      && element.offsetLeft>-element.offsetWidth
+      && element.offsetLeft<window.innerWidth){
+      return true;
+    } else {
+
+      return false;
+    }
+  }
+
   nextPagination = () => {
-    if(this.refs['pagination9'])
-      ReactDOM.findDOMNode(this.refs['pagination9']).scrollIntoView({behavior: "smooth", block: "end"});
+    this.contPagination+=1;
+    let page = `pagination${this.contPagination}`;
+    if(this.refs[page]) {
+      ReactDOM.findDOMNode(this.refs[page]).scrollIntoView({behavior: "smooth"});
+      if(this.isInViewport(ReactDOM.findDOMNode(this.refs[page]))) {
+        this.nextPagination();
+      }
+    }
   };
   
   prevPagination = () => {
+    this.contPagination = 0;
     if(this.refs['pagination0'])
       ReactDOM.findDOMNode(this.refs['pagination0']).scrollIntoView({behavior: "smooth"});
   };
