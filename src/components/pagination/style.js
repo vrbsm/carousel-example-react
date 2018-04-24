@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { primaryColor } from './../../utils/colors';
 
 
-export const Carousel = styled.div`
+export const Pagination = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;

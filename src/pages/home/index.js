@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Carousel } from '../../components';
+import { Pagination } from '../../components';
 import { Container, Header, Footer, Body } from './style';
 import Recommendation from '../../service/api/Recommendation';
 
@@ -33,7 +33,7 @@ class index extends Component {
         Hi, I am victor(victor.ecp@gmail.com) and this is my challenge. My component is bellow
         </Body>
         <Footer>
-          <Carousel item={reference} recommendation={recommendation} />
+          <Pagination item={reference} recommendation={recommendation} />
         </Footer>
       </Container>
     );

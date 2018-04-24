@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor, red } from './../../../utils/colors';
+import { primaryColor, red, white } from './../../../utils/colors';
 
 export const Container = styled.div`
   width: 213px;
@@ -12,21 +12,14 @@ export const Container = styled.div`
    &:hover {
     color: ${primaryColor};
     span{
-        border: 1px solid ${primaryColor};
+       border: 1px solid ${primaryColor};
     }
   }
-  order: ${props => props.order}
-  transition: ${props => (props.moving ? 'none' : 'transform 0.5s ease-in 0s')};
-  transform: ${(props) => {
-    if (!props.moving) { return 'translateX(-110%)'; }
-    if (props.direction === 'prev') { return 'translateX(calc(2 * (-110%)))'; }
-    return 'translateX(0%)';
-  }};
   `;
-
 export const ImageContainer = styled.span`
     text-align: center;
     flex: 1 1 1;
+    border: 1px solid ${white};
 `;
 export const Image = styled.img`
     width: 150px;

@@ -1,5 +1,5 @@
-# This is carousel-example-react
-## This project show how use carousel component
+# This is vitrines-example-react
+## This project show how use Vitrines component
 
 `Warning disable the cors`
 
@@ -10,7 +10,7 @@
 
 ## Demo
 
- - [Carousel-Example](http://carousel-vrbsm.surge.sh)
+ - [Vitrines-Example](http://carousel-vrbsm.surge.sh)
 
 ## Available Scripts
 
