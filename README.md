@@ -10,7 +10,7 @@
 
 ## Demo
 
- - [Vitrines-Example](http://carousel-vrbsm.surge.sh)
+ - [Vitrines-Example](http://vitrines-vrbsm.surge.sh/)
 
 ## Available Scripts
 
