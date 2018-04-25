@@ -1,7 +1,7 @@
 # This is vitrines-example-react
 ## This project show how use Vitrines component
 
-`Warning disable the cors`
+`Warning enable the cors`
 
 > Project using React
 > 
