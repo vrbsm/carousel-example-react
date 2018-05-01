@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { primaryColor, red, white } from './../../../utils/colors';
 
 export const Container = styled.div`
-  width: 213px;
+  width: 180px;
   height: 100%;
   display: flex;
   margin-top: 10px;
@@ -33,6 +33,12 @@ export const Name = styled.strong`
     font-size: 12px;
     overflow: hidden;
     flex: 1 1 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    height: 3.6em;
   `;
 
 export const Price = styled.strong`

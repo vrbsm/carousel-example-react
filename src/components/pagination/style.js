@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor } from './../../utils/colors';
+import { primaryColor, secondColor } from './../../utils/colors';
 
 
 export const Pagination = styled.div`
@@ -39,7 +39,7 @@ export const PaginationContainer = styled.div`
 
 export const Title = styled.strong`
   color: ${primaryColor}
-  background: #a2cff1;
+  background: ${secondColor};
   padding: 10px;
 `;
 export const Next = styled.strong`
