@@ -11,16 +11,20 @@ class index extends Component {
   }
   
   componentDidMount() {
-    Recommendation.recommendationProduct()
-      .then((response) => {
-        this.setState({
-          recommendation: response.recommendation,
-          reference: response.reference.item
-        })
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // Recommendation.recommendationProduct()
+    //   .then((response) => {
+    //     this.setState({
+    //       recommendation: response.recommendation,
+    //       reference: response.reference.item
+    //     })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    this.setState({
+            recommendation: Recommendation.recommandationProduct().data.recommendation,
+            reference: Recommendation.recommandationProduct().data.reference.item
+          });
   }
   render() {
     const { reference, recommendation } = this.state;

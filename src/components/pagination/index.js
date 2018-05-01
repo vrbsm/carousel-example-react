@@ -7,8 +7,9 @@ import {
   Back,
   Next,
   CurrentProduct,
-  RecommendProduct,
   RecommendContainer,
+  PaginationContainer,
+  SlickContainer,
   Title,
 } from './style';
 import Item from './item';
@@ -58,21 +59,22 @@ class index extends Component {
           <Item item={item} />
         </CurrentProduct>
         <RecommendContainer>
+          <Title>e talvez se interesse por: </Title>
+        <SlickContainer>
           <Back onClick={() => this.prevPagination()}>
             >
           </Back>
-          <RecommendProduct>
-            <Title>e talvez se interesse por: </Title>
+          <PaginationContainer>
             <Pagination>
               {recommendation.map((r, index) =>
                 <Item key={r.businessId}  ref={`pagination${index}`} item={r}/>
               )}
-              
             </Pagination>
-          </RecommendProduct>
+          </PaginationContainer>
           <Next onClick={() => this.nextPagination()}>
             >
           </Next>
+        </SlickContainer>
         </RecommendContainer>
       </Container>
     );

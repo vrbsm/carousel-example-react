@@ -5,7 +5,7 @@ import { primaryColor } from './../../utils/colors';
 export const Pagination = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100%;
+    flex: 1 1 0;
 `;
 export const Container = styled.div`
     width: 100%;
@@ -16,33 +16,40 @@ export const Container = styled.div`
 export const CurrentProduct = styled.div`
     flex: 1 1 1;
     display: flex;
-    padding: 5px;
     flex-direction: column;
 `;
 export const RecommendContainer = styled.div`
     display: flex;
     flex: 1 1 0;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
 `;
-
-export const RecommendProduct = styled(RecommendContainer)`
-    flex-direction: column;
+export const SlickContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex: 1 1 0;
 `;
+export const PaginationContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex: 1 1 0;
+`;
+
 export const Title = styled.strong`
   color: ${primaryColor}
+  background: #a2cff1;
+  padding: 10px;
 `;
 export const Next = styled.strong`
-    width: 30px;
-    height: 30px;
-    text-align: center;
     font-size: xx-large;
     cursor: pointer;
     flex: 1 1 1;
     display: flex;
     color: ${primaryColor};
     align-self: center;
-    padding: 10px;
+    padding: 5px;
     `;
 export const Back = styled(Next)`
     transform: rotate(180deg);
