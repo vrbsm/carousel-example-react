@@ -17,37 +17,26 @@ import Item from './item';
 class index extends Component {
 
   constructor(props){
-    super(props)
-    this.contPagination = 0;
+    super(props);
+    this.paginationRef = {};
+    this.scrollCont = 0;
   }
-
-  isInViewport = (element) => {
-    if(element.offsetTop<window.innerHeight &&
-      element.offsetTop>-element.offsetHeight
-      && element.offsetLeft>-element.offsetWidth
-      && element.offsetLeft<window.innerWidth){
-      return true;
-    } else {
-
-      return false;
-    }
-  }
+  
 
   nextPagination = () => {
-    this.contPagination+=1;
-    let page = `pagination${this.contPagination}`;
-    if(this.refs[page]) {
-      ReactDOM.findDOMNode(this.refs[page]).scrollIntoView({behavior: "smooth"});
-      if(this.isInViewport(ReactDOM.findDOMNode(this.refs[page]))) {
-        this.nextPagination();
-      }
+    if(this.paginationRef) {
+      const element = ReactDOM.findDOMNode(this.paginationRef);
+      const maxScrollLeft = element.scrollWidth - element.clientWidth;
+      this.scrollCont = this.scrollCont + 300 > maxScrollLeft ? maxScrollLeft : this.scrollCont + 300;
+      ReactDOM.findDOMNode(this.paginationRef).scroll({left: this.scrollCont, behavior: "smooth"});
     }
   };
   
   prevPagination = () => {
-    this.contPagination = 0;
-    if(this.refs['pagination0'])
-      ReactDOM.findDOMNode(this.refs['pagination0']).scrollIntoView({behavior: "smooth"});
+    if(this.paginationRef) {
+        this.scrollCont = this.scrollCont - 300 > 0 ? this.scrollCont - 300 : 0;
+        ReactDOM.findDOMNode(this.paginationRef).scroll({left: this.scrollCont, behavior: "smooth"});
+    }
   };
   
   render() {
@@ -64,10 +53,10 @@ class index extends Component {
           <Back onClick={() => this.prevPagination()}>
             >
           </Back>
-          <PaginationContainer>
-            <Pagination>
-              {recommendation.map((r, index) =>
-                <Item key={r.businessId}  ref={`pagination${index}`} item={r}/>
+          <PaginationContainer ref={(pag) => this.paginationRef = pag }>
+            <Pagination >
+              {recommendation.map((r) =>
+                <Item key={r.businessId}  item={r}/>
               )}
             </Pagination>
           </PaginationContainer>
