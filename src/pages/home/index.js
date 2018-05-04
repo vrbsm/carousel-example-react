@@ -26,6 +26,11 @@ class index extends Component {
             reference: Recommendation.recommandationProduct().data.reference.item
           });
   }
+
+  onClickItem = (detailUrl) => {
+    console.log(detailUrl);
+  }
+
   render() {
     const { reference, recommendation } = this.state;
     return (
@@ -37,7 +42,7 @@ class index extends Component {
         Hi, I am victor(victor.ecp@gmail.com) and this is my challenge. My component is bellow
         </Body>
         <Footer>
-          <Pagination item={reference} recommendation={recommendation} />
+          <Pagination item={reference} recommendation={recommendation} onClickItem={this.onClickItem}/>
         </Footer>
       </Container>
     );

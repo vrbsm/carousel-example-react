@@ -13,7 +13,7 @@ class index extends Component {
   render() {
     const { item } = this.props;
     return (
-      <Container>
+      <Container onClick={() => this.props.onClickItem(item.detailUrl)}>
         <ImageContainer>
           <Image src={item.imageName} />
         </ImageContainer>

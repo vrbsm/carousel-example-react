@@ -38,14 +38,18 @@ class index extends Component {
         ReactDOM.findDOMNode(this.paginationRef).scroll({left: this.scrollCont, behavior: "smooth"});
     }
   };
-  
+
+  onClickItem = (detailUrl) => {
+      this.props.onClickItem(detailUrl);
+  }
+
   render() {
     const { item, recommendation } = this.props;
     return (
       <Container>
-        <CurrentProduct>
+        <CurrentProduct >
           <Title>Você visitou: </Title>
-          <Item item={item} />
+          <Item item={item} onClickItem={this.onClickItem}/>
         </CurrentProduct>
         <RecommendContainer>
           <Title>e talvez se interesse por: </Title>
@@ -56,7 +60,7 @@ class index extends Component {
           <PaginationContainer ref={(pag) => this.paginationRef = pag }>
             <Pagination >
               {recommendation.map((r) =>
-                <Item key={r.businessId}  item={r}/>
+                <Item key={r.businessId}  item={r} onClickItem={this.onClickItem}/>
               )}
             </Pagination>
           </PaginationContainer>
@@ -72,6 +76,7 @@ class index extends Component {
 Item.propTypes = {
   item: PropTypes.object,
   recommendation: PropTypes.array,
+  onClickItem: PropTypes.func.isRequired
 };
 Item.defaultProps = {
   item: { },
